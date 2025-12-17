@@ -83,6 +83,22 @@ function migrateStylelintrc(stylelintrcPath) {
 }
 
 function setupStylelint() {
+	// Check Node.js version (requires v14+, but v16+ recommended for security)
+	// Stylelint 15.x supports Node.js 14+, but Node.js 14 is EOL
+	// Requiring v16+ ensures security updates and compatibility with modern tooling
+	const nodeVersion = process.version;
+	const majorVersion = parseInt(nodeVersion.slice(1).split('.')[0]);
+	if (majorVersion < 14) {
+		console.error(`❌ Error: Node.js v14+ is required for Stylelint (found ${nodeVersion})`);
+		console.error('Node.js v16+ is recommended for security and compatibility');
+		console.error('Please upgrade Node.js from https://nodejs.org/');
+		process.exit(1);
+	}
+	if (majorVersion < 16) {
+		console.warn(`⚠ Warning: Node.js v16+ is recommended (found ${nodeVersion})`);
+		console.warn('Node.js v14 is EOL and may have security vulnerabilities');
+	}
+	
 	// Get the directory where this script is located
 	const scriptDir = dirname(fileURLToPath(import.meta.url));
 	// Resolve project root (one level up from scripts folder)

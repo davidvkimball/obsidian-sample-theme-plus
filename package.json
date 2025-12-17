@@ -1,6 +1,9 @@
 {
 	"name": "sample-obsidian-theme",
 	"version": "1.0.0",
+	"description": "This is a sample theme for Obsidian (https://obsidian.md)",
+	"author": "",
+	"license": "0BSD",
 	"scripts": {
 		"lint": "stylelint \"*.css\"",
 		"lint:fix": "stylelint \"*.css\" --fix",
