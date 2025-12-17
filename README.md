@@ -1,6 +1,69 @@
-This is a sample theme for Obsidian ([https://obsidian.md](https://obsidian.md/)).
+# Obsidian Sample Theme Plus
 
-## First Time publishing a theme?
+This is a sample theme for [Obsidian](https://obsidian.md) enhanced with AI-assisted development tools and best practices.
+
+## What Makes This Enhanced Version Different?
+
+This template includes additional tools and documentation to improve your development experience:
+
+### AI-Assisted Development System
+
+- **`AGENTS.md`** - Project-specific instructions for AI coding assistants
+- **`.agents/` folder** - Comprehensive development guides, code patterns, and best practices
+- Helps AI assistants understand your project structure and coding conventions
+- Provides quick reference guides and common task examples
+
+### Reference Materials System (`.ref` folder)
+
+- **Symlinks to Obsidian repositories** - Easy access to API docs, sample code, and examples
+- **Centralized storage** - All projects share the same reference repos (no duplication)
+- **6 core Obsidian projects** - API definitions, documentation, sample plugins, sample themes
+- **Project-specific references** - Add your own plugin/theme references as needed
+
+## Quick Start
+
+### For New Themes (Using This as a Template)
+
+1. **Use this template** - Click "Use this template" on GitHub or clone this repo
+2. **Optional: Setup reference materials** (recommended):
+   - **Windows**: `scripts\setup-ref-links.bat`
+   - **macOS/Linux**: `./scripts/setup-ref-links.sh`
+3. **Start developing**: Edit `theme.css` to customize your theme
+
+### For Existing Themes (Upgrading to This System)
+
+You can add these enhancements to your existing theme:
+
+1. **Copy these to your theme**:
+   - `AGENTS.md` → Your theme root
+   - `.agents/` folder → Your theme root
+   - `scripts/` folder → Your theme root
+
+2. **Setup reference materials**:
+   - **Windows**: `scripts\setup-ref-links.bat`
+   - **macOS/Linux**: `./scripts/setup-ref-links.sh`
+
+3. **Done!** You now have AI-assisted development guides and reference materials.
+
+## Setup Scripts Details
+
+### Reference Materials Setup (`scripts/setup-ref-links.*`)
+
+**What it does:**
+- Creates `../.ref/obsidian-dev/` directory (central location for all reference repos)
+- Clones or updates the 6 core Obsidian projects:
+  - `obsidian-api` - Official API type definitions
+  - `obsidian-sample-plugin` - Template plugin with best practices
+  - `obsidian-developer-docs` - Source for docs.obsidian.md
+  - `obsidian-plugin-docs` - Plugin-specific documentation
+  - `obsidian-sample-theme` - Theme template
+  - `eslint-plugin` - ESLint rules for Obsidian plugins
+- Creates symlinks in your project's `.ref/` folder pointing to the central location
+- Creates `plugins/` and `themes/` subdirectories for project-specific references
+
+**Note:** The `.ref` folder is gitignored and acts as a "portal" to reference materials. It doesn't contain actual files, just symlinks. All your projects can share the same central reference repos.
+
+## First Time Publishing a Theme?
 
 ### Quick start
 
@@ -24,6 +87,32 @@ Once you have the repo locally on your computer, there are a couple of placehold
 
 After you have those fields configured, all that's left to do is add your styles! All of your CSS needs to be inside the file `theme.css` which is located at root of your repository.
 
+## How to Use
+
+### Basic Development
+
+- Clone this repo.
+- Edit `theme.css` to customize your theme's appearance.
+- Test your theme by copying `theme.css` and `manifest.json` to your vault's `.obsidian/themes/your-theme-name/` folder.
+- Reload Obsidian to see your changes.
+
+### Using the AI System
+
+- Read `AGENTS.md` for project-specific instructions
+- Check `.agents/` folder for development guides:
+  - `quick-reference.md` - One-page cheat sheet
+  - `common-tasks.md` - Quick code examples
+  - `code-patterns.md` - Comprehensive patterns
+  - `troubleshooting.md` - Common issues and solutions
+  - And more...
+
+### Using Reference Materials
+
+- Access Obsidian API: `.ref/obsidian-api/obsidian.d.ts`
+- View sample theme code: `.ref/obsidian-sample-theme/`
+- View sample plugin code: `.ref/obsidian-sample-plugin/`
+- See [`.agents/ref-instructions.md`](.agents/ref-instructions.md) for details
+
 ## Adding your theme to the Theme Gallery
 
 ### Add a screenshot thumbnail
@@ -37,7 +126,7 @@ The recommended size is 512x288.
 
 To have your theme included in the Theme Gallery, you will need to submit a Pull Request to [`obsidianmd/obsidian-releases`](https://github.com/obsidianmd/obsidian-releases#community-theme).
 
-## Releasing Versions _(Optional)_
+## Releasing Versions
 
 If your theme is getting more and more complex, you might want to start thinking about how your theme will stay compatible with different versions of Obsidian. Introduced in v0.16 of Obsidian, themes support [Github Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository). This means that you can specify which versions of your theme are compatible with which versions of Obsidian.
 
@@ -69,7 +158,7 @@ If your theme is getting more and more complex, you might want to start thinking
   ```
   
   This means that version 1.0.0 of your theme is compatible with version 0.16.0 of Obsidian. For the initial release of your theme, you shouldn't need to make any changes to this file.
- 
+
 ### Steps for releasing new versions
 
 Releasing a new version of your theme is the same as releasing the initial version.
@@ -93,3 +182,55 @@ Releasing a new version of your theme is the same as releasing the initial versi
   ```
 
   What's important to note here is: the new version is included as the "key" and the "value" is the minimum version of Obsidian that your theme compatible with. So if the new version of your theme is only compatible with an Insider version of Obsidian, it's important to set this value accordingly. This will prevent users on older versions of Obsidian from updating to the newer version of your theme.
+
+> **Tip:** You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
+> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`.
+
+## Troubleshooting
+
+### Reference folder not working
+
+If `.ref` folder is empty or symlinks are broken:
+1. Re-run the appropriate setup script (`.bat` for Windows, `.sh` for macOS/Linux)
+2. Check that the central location exists: `../.ref/obsidian-dev/`
+3. Verify symlinks were created in your project's `.ref/` folder
+
+### Theme not appearing in Obsidian
+
+1. Make sure `manifest.json` and `theme.css` are in the correct location: `.obsidian/themes/your-theme-name/`
+2. Verify `manifest.json` has the correct `name` field
+3. Reload Obsidian (Settings → Appearance → Themes)
+4. Check that `theme.css` contains valid CSS
+
+## Manually Installing the Theme
+
+- Copy over `theme.css` and `manifest.json` to your vault `VaultFolder/.obsidian/themes/your-theme-name/`.
+- Reload Obsidian and enable the theme in Settings → Appearance → Themes.
+
+## Funding URL
+
+You can include funding URLs where people who use your theme can financially support it.
+
+The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+
+```json
+{
+    "fundingUrl": "https://buymeacoffee.com"
+}
+```
+
+If you have multiple URLs, you can also do:
+
+```json
+{
+    "fundingUrl": {
+        "Buy Me a Coffee": "https://buymeacoffee.com",
+        "GitHub Sponsor": "https://github.com/sponsors",
+        "Patreon": "https://www.patreon.com/"
+    }
+}
+```
+
+## API Documentation
+
+See https://github.com/obsidianmd/obsidian-api
