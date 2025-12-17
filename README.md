@@ -20,15 +20,64 @@ This template includes additional tools and documentation to improve your develo
 - **6 core Obsidian projects** - API definitions, documentation, sample plugins, sample themes
 - **Project-specific references** - Add your own plugin/theme references as needed
 
+### Stylelint CSS Linting
+
+- **Pre-configured by default** - Stylelint is set up and ready to use (requires `npm install`)
+- **Browser compatibility checking** - Validates CSS against Obsidian's browser targets (Chrome and iOS)
+- **Automatic migration** - Setup script available for adding Stylelint to existing themes
+- **Catches common issues** - Invalid CSS properties, unsupported features, and more
+- **Note**: Simple CSS themes don't require npm, but this template includes Stylelint for better development experience. You can edit `theme.css` directly without npm, but linting requires it.
+
+## Recommended Tools and Plugins for Theme Development
+
+These tools and plugins can significantly improve your theme development workflow:
+
+### Theme Design Utilities
+
+**[Theme Design Utilities](https://github.com/chrisgrieser/obsidian-theme-design-utilities)** - A comprehensive collection of utilities and quality-of-life features for Obsidian theme designers.
+
+**Key features:**
+- Mobile emulation mode for testing mobile layouts
+- Cycle between Source Mode, Live Preview, and Reading Mode
+- Cycle through installed themes for quick comparison
+- Light/dark mode toggle
+- Freeze Obsidian for capturing tooltips and context menus
+- Red outlines for debugging CSS layout issues
+- CSS feature compatibility checker (shows Chrome version)
+- Cheatsheet of Obsidian CSS classes
+
+### MySnippets Plugin
+
+**[MySnippets](https://github.com/chetachiezikeuzor/MySnippets-Plugin)** - Manage CSS snippets directly within Obsidian. Perfect for testing theme changes without leaving your editor.
+
+### Theme Picker Plugin
+
+**[Theme Picker](https://github.com/trey-sedate/obsidian-theme-picker)** - Quickly switch between installed themes without opening settings. Great for comparing your theme with others during development.
+
+### Print Preview Plugin
+
+**[Print Preview](https://github.com/nothingislost/obsidian-print-preview)** - Debug "export to PDF" issues by inspecting how your theme renders in print format. Essential for ensuring your theme looks good when exported.
+
+### Theme Hot Reload Plugin
+
+**[Theme Hot Reload](https://github.com/mProjectsCode/obsidian-theme-hot-reload-plugin)** - Automatically reload your theme when CSS files change. Dramatically speeds up development by eliminating manual reloads.
+
+### Stylelint Guide
+
+**[Why and How to use Stylelint for your Obsidian Theme](https://publish.obsidian.md/hub/04+-+Guides%2C+Workflows%2C+%26+Courses/Guides/Why+and+How+to+use+Stylelint+for+your+Obsidian+Theme)** - Comprehensive guide on setting up and using Stylelint for Obsidian theme development. Covers browser compatibility, configuration, and best practices.
+
 ## Quick Start
 
 ### For New Themes (Using This as a Template)
 
 1. **Use this template** - Click "Use this template" on GitHub or clone this repo
-2. **Optional: Setup reference materials** (recommended):
+2. **Optional: Install dependencies** (recommended): `npm install` (includes Stylelint for CSS linting)
+   - **Note**: You can edit `theme.css` directly without npm, but linting requires it
+3. **Optional: Setup reference materials** (recommended):
    - **Windows**: `scripts\setup-ref-links.bat`
    - **macOS/Linux**: `./scripts/setup-ref-links.sh`
-3. **Start developing**: Edit `theme.css` to customize your theme
+4. **Start developing**: Edit `theme.css` to customize your theme
+5. **Optional: Check CSS quality**: Run `npm run lint` to validate your CSS (requires npm install)
 
 ### For Existing Themes (Upgrading to This System)
 
@@ -43,9 +92,33 @@ You can add these enhancements to your existing theme:
    - **Windows**: `scripts\setup-ref-links.bat`
    - **macOS/Linux**: `./scripts/setup-ref-links.sh`
 
-3. **Done!** You now have AI-assisted development guides and reference materials.
+3. **Optional: Setup Stylelint** (recommended):
+   ```bash
+   node scripts/setup-stylelint.mjs
+   npm install
+   npm run lint
+   ```
+
+4. **Done!** You now have AI-assisted development guides, reference materials, and CSS linting.
 
 ## Setup Scripts Details
+
+### Stylelint Setup (`scripts/setup-stylelint.mjs`)
+
+**What it does:**
+- Updates `package.json` with Stylelint devDependencies and scripts
+- Generates `.stylelintrc.json` configuration file (with Obsidian browser compatibility rules)
+- Generates `.stylelintignore` file
+- Migrates rules from existing Stylelint configs (if present)
+
+**Usage:**
+```bash
+node scripts/setup-stylelint.mjs
+npm install
+npm run lint
+```
+
+**Note:** Stylelint is pre-configured in this template. The setup script is primarily for adding Stylelint to existing themes or updating the configuration.
 
 ### Reference Materials Setup (`scripts/setup-ref-links.*`)
 

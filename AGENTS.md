@@ -45,6 +45,8 @@ This is the **Obsidian Sample Theme** - a reference/template theme that demonstr
 - Code should remain simple and well-commented for educational purposes
 - Examples should demonstrate one concept clearly rather than complex integrations
 - Follow the standard Obsidian theme structure (theme.css, manifest.json)
+- **Default build pattern**: This template assumes simple CSS themes with no build step (edit `theme.css` directly)
+- **Complex theme patterns**: Some themes use build tools for SCSS compilation, but this template doesn't require them
 
 ### Project-Specific References
 
@@ -56,7 +58,8 @@ If this project references specific plugins or themes that are relevant to its d
 
 **Note**: The 6 core Obsidian projects (obsidian-api, obsidian-sample-plugin, obsidian-developer-docs, obsidian-plugin-docs, obsidian-sample-theme, eslint-plugin) are always relevant and should be in every project's `.ref` folder. Only document project-specific plugins/themes here.
 
-**Current project-specific references**: None currently.
+**Current project-specific references**:
+- `obsidian-sample-plugin-plus` (local) - Reference plugin repo at `C:\Users\david\Development\obsidian-sample-plugin-plus` used as a pattern reference for ESLint setup (to replicate for Stylelint in themes)
 
 ### Overrides (Optional)
 
@@ -70,6 +73,18 @@ None currently. This project follows the general `.agents` guidance.
 - `package.json` - Node.js dependencies and build scripts (for version management)
 - `version-bump.mjs` - Script for version management
 - `versions.json` - Version compatibility mapping
+
+### Theme Build Patterns
+
+**This Template (Simple CSS Theme)**:
+- No build step required - just edit `theme.css` directly
+- Changes take effect when Obsidian reloads the theme
+- **Linting**: Run `npm run lint` to check CSS quality (optional but recommended)
+- **Note**: This template includes Stylelint (requires `npm install`), but the theme itself works without npm. You can edit `theme.css` directly without npm, but linting requires it.
+
+**Complex Themes** (Not applicable to this template):
+- Some themes use build tools (Grunt, npm scripts, SCSS compilers) for compilation
+- This template is for simple CSS themes and doesn't require build tools
 
 ### Development Notes
 
