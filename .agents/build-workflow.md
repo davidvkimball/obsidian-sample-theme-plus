@@ -2,32 +2,11 @@
 Source: Project-specific workflow
 Last synced: See sync-status.json for authoritative sync dates
 Update frequency: Update as build process evolves
-Applicability: Plugin / Theme
 -->
 
 # Build Workflow
 
 **CRITICAL**: Always run the build command after making changes to catch errors early.
-
-## For Plugins
-
-After making any changes to plugin code:
-
-1. **Run the build** (assume npm is already installed):
-   ```powershell
-   npm run build
-   ```
-
-2. **If the build fails with npm/node errors**, then check if npm is installed:
-   ```powershell
-   npm --version
-   ```
-   - If npm is not found, inform the user that Node.js (which includes npm) needs to be installed
-   - Do not automatically install npm - let the user handle installation
-
-3. **Check for errors** and fix any build issues before proceeding. See [troubleshooting.md](troubleshooting.md) and [common-pitfalls.md](common-pitfalls.md) for common build issues.
-
-## For Themes
 
 After making any changes to theme code:
 

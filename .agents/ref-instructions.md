@@ -2,7 +2,6 @@
 Source: Project-specific instructions
 Last synced: See sync-status.json for authoritative sync dates
 Update frequency: Update as reference management strategy evolves
-Applicability: Both
 -->
 
 # .ref Folder Instructions

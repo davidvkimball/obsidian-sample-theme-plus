@@ -2,7 +2,6 @@
 Source: Based on Obsidian Developer Policies, Theme Guidelines, and official release checklist
 Last synced: See sync-status.json for authoritative sync dates
 Update frequency: Check Obsidian Developer Policies and Theme Guidelines for updates
-Applicability: Theme
 -->
 
 # Release Readiness Checklist
