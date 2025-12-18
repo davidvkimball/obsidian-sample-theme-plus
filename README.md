@@ -73,7 +73,6 @@ These tools and plugins can significantly improve your theme development workflo
    - `AGENTS.md` → Your theme root
    - `.agents/` folder → Your theme root
    - `scripts/` folder → Your theme root
-   - `.github/` folder (optional) → Your theme root (contains GitHub Actions workflows)
 
 2. **Setup reference materials**:
    - **Windows**: `scripts\setup-ref-links.bat`
@@ -143,20 +142,6 @@ These tools and plugins can significantly improve your theme development workflo
 
 > **Tip:** You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
 
-## GitHub Actions Workflows (Optional)
-
-This template includes GitHub Actions workflows in `.github/workflows/`:
-
-- **`lint.yml`** - Automatically checks your CSS on every push (validates with Stylelint)
-- **`release.yml`** - Automatically creates GitHub releases when you push a version tag
-
-**These workflows are completely optional** - your theme works fine without them. They're included as a convenience for automated testing and releases.
-
-**If you want to modify the workflows:**
-- You can edit them directly on GitHub.com (no special permissions needed)
-- If you want to push workflow changes via Git, you'll need a Personal Access Token with the `workflow` scope (see [GitHub's documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens))
-- Most users won't need to modify workflows - they work out of the box
-
 ## Troubleshooting
 
 ### Upgrade Issues
@@ -165,7 +150,6 @@ If you're upgrading an existing theme and encounter issues:
 
 1. **Stylelint errors after setup**: Run `npm install` to ensure all dependencies are installed (if using package.json)
 2. **Package.json conflicts**: Don't copy `package.json` from the template - the setup script will create/update it with only the necessary additions
-3. **Workflow permission errors**: See [GitHub Actions Workflows (Optional)](#github-actions-workflows-optional) section above
 
 ### Reference folder not working
 
