@@ -69,21 +69,31 @@ These tools and plugins can significantly improve your theme development workflo
 
 ### For Existing Themes (Upgrading to This System)
 
-1. **Copy these to your theme**:
+1. **Copy these folders/files to your theme**:
    - `AGENTS.md` → Your theme root
    - `.agents/` folder → Your theme root
    - `scripts/` folder → Your theme root
+   - `.github/` folder (optional) → Your theme root (contains GitHub Actions workflows)
 
 2. **Setup reference materials**:
    - **Windows**: `scripts\setup-ref-links.bat`
    - **macOS/Linux**: `./scripts/setup-ref-links.sh`
+   - This creates symlinks to Obsidian reference repos in `.ref/` folder
 
-3. **Optional: Setup Stylelint**:
+3. **Setup Stylelint** (recommended):
    ```bash
    node scripts/setup-stylelint.mjs
    npm install
    npm run lint
    ```
+   
+   **What the setup script does automatically:**
+   - Updates `package.json` with Stylelint dependencies and lint scripts (if package.json exists)
+   - Creates/updates `.stylelintrc.json` (Stylelint configuration)
+   - Creates `.stylelintignore` (files to exclude from linting)
+   - Creates `scripts/lint-wrapper.mjs` (adds helpful success messages)
+   
+   **Note:** Themes don't require `package.json` - you can edit `theme.css` directly. The setup script will create `package.json` if it doesn't exist, but it's only needed for linting.
 
 ## First Time Publishing a Theme?
 
@@ -148,6 +158,14 @@ This template includes GitHub Actions workflows in `.github/workflows/`:
 - Most users won't need to modify workflows - they work out of the box
 
 ## Troubleshooting
+
+### Upgrade Issues
+
+If you're upgrading an existing theme and encounter issues:
+
+1. **Stylelint errors after setup**: Run `npm install` to ensure all dependencies are installed (if using package.json)
+2. **Package.json conflicts**: Don't copy `package.json` from the template - the setup script will create/update it with only the necessary additions
+3. **Workflow permission errors**: See [GitHub Actions Workflows (Optional)](#github-actions-workflows-optional) section above
 
 ### Reference folder not working
 
