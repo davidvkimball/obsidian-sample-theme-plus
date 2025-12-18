@@ -261,13 +261,21 @@ function generateStylelintConfig(customRules = {}, hasScssFiles = false) {
 	};
 }
 
-function generateStylelintIgnore() {
-	return `node_modules/**
+function generateStylelintIgnore(hasScssFiles = false) {
+	let ignoreContent = `node_modules/**
 *.min.css
 dist/**
 build/**
 scripts/**
 `;
+	
+	// If SCSS files exist, theme.css is compiled output and shouldn't be linted
+	if (hasScssFiles) {
+		ignoreContent += `theme.css
+`;
+	}
+	
+	return ignoreContent;
 }
 
 function migrateStylelintrc(stylelintrcPath) {
@@ -434,7 +442,7 @@ function setupStylelint() {
 		
 		// Generate .stylelintignore file
 		let stylelintIgnoreUpdated = false;
-		const ignoreContent = generateStylelintIgnore();
+		const ignoreContent = generateStylelintIgnore(hasScssFiles);
 		
 		if (!existsSync(stylelintIgnorePath)) {
 			writeFileSync(stylelintIgnorePath, ignoreContent, 'utf8');

@@ -16,94 +16,21 @@ Applicability: Theme
 
 ### Project Overview
 
-This is the **Obsidian Sample Theme** - a reference/template theme that demonstrates basic Obsidian theme customization. It serves as:
-
-- A learning resource for new theme developers
-- A template for creating new Obsidian themes
-- A reference implementation for common theme patterns
-
-**Current functionality:**
-- Provides a basic theme structure with `theme.css` for styling
-- Demonstrates CSS customization of Obsidian's interface
-- Shows how to organize theme files and manifest configuration
-
 ### Important Project-Specific Details
-
-- **Project Type**: Template/Reference theme (not intended for production use)
-- **Purpose**: Educational and template purposes
-- **Status**: Maintained by Obsidian team as a reference implementation
-- This theme demonstrates basic patterns that other themes can learn from
 
 ### Maintenance Tasks
 
-- **README.md**: When asked to update documentation or when making significant changes, review and update `README.md` to ensure it accurately reflects the current state of the project, including features, installation instructions, and usage examples.
-- Keep the sample functionality simple and clear for educational purposes
-- Ensure all examples follow Obsidian best practices
-
 ### Project-Specific Conventions
-
-- Code should remain simple and well-commented for educational purposes
-- Examples should demonstrate one concept clearly rather than complex integrations
-- Follow the standard Obsidian theme structure (theme.css, manifest.json)
-- **Theme structure variance**: This template supports both patterns:
-  - **Simple CSS theme**: `theme.css` in root (default, no build step)
-  - **Complex theme**: `src/scss/` directory with build tools (Grunt, npm scripts, etc.)
-- **Linting**: The lint wrapper automatically detects which pattern is used and lints appropriately
 
 ### Project-Specific References
 
-If this project references specific plugins or themes that are relevant to its development, document them here. These should be symlinked in `.ref/plugins/` or `.ref/themes/` as needed.
-
-**Example structure**:
-- `.ref/plugins/plugin-name/` - Reference to a specific plugin that demonstrates patterns used in this project
-- `.ref/themes/theme-name/` - Reference to a specific theme that demonstrates patterns used in this project
-
-**Note**: The 6 core Obsidian projects (obsidian-api, obsidian-sample-plugin, obsidian-developer-docs, obsidian-plugin-docs, obsidian-sample-theme, eslint-plugin) are always relevant and should be in every project's `.ref` folder. Only document project-specific plugins/themes here.
-
-**Current project-specific references**:
-- `obsidian-sample-plugin-plus` (local) - Reference plugin repo at `C:\Users\david\Development\obsidian-sample-plugin-plus` used as a pattern reference for ESLint setup (to replicate for Stylelint in themes)
-
 ### Overrides (Optional)
-
-None currently. This project follows the general `.agents` guidance.
 
 ### Key Files and Their Purposes
 
-- `theme.css` - Main theme stylesheet with CSS customization
-- `manifest.json` - Theme metadata and configuration
-- `README.md` - Project documentation and usage instructions
-- `package.json` - Node.js dependencies and build scripts (for version management)
-- `version-bump.mjs` - Script for version management
-- `versions.json` - Version compatibility mapping
-
 ### Theme Build Patterns
 
-**This Template Supports Both Patterns**:
-
-**Simple CSS Theme** (Default):
-- No build step required - just edit `theme.css` directly
-- Changes take effect when Obsidian reloads the theme
-- **Linting**: Run `npm run lint` to check CSS quality (optional but recommended)
-- **Note**: This template includes Stylelint (requires `npm install`), but the theme itself works without npm. You can edit `theme.css` directly without npm, but linting requires it.
-
-**Complex Themes with Build Tools** (Supported):
-- Themes can use build tools (Grunt, npm scripts, SCSS compilers) for compilation
-- Source files in `src/scss/` compile to `theme.css`
-- **Linting**: The lint wrapper automatically detects `src/scss/` and lints SCSS files appropriately
-- **Example**: The `obsidian-oxygen` theme uses this pattern with Grunt
-- See [file-conventions.md](.agents/file-conventions.md) and [build-workflow.md](.agents/build-workflow.md) for details
-
-The lint wrapper and documentation automatically handle both patterns, so you can use whichever structure fits your theme.
-
 ### Development Notes
-
-- This is a template project - when used as a template, developers should customize this `AGENTS.md` file with their own project details
-- The `.agents` folder structure is designed to be reusable across projects
-- When syncing updates from reference repos, only general `.agents` files are updated; this `AGENTS.md` file is preserved
-
-### When to Consider Using `.agents/.context/` Directory
-
-If your project needs project-specific versions of multiple `.agents` files (e.g., custom `build-workflow.md`, etc.), consider creating a `.agents/.context/` directory structure. This advanced feature is optional and only needed for complex projects. See the Navigation section below for details on the `.context/` directory structure.
 
 ---
 
