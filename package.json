@@ -5,13 +5,16 @@
 	"author": "",
 	"license": "0BSD",
 	"scripts": {
+		"preinstall": "node scripts/npm-proxy.mjs",
 		"lint": "node scripts/lint-wrapper.mjs",
 		"lint:fix": "node scripts/lint-wrapper.mjs --fix",
-		"version": "node version-bump.mjs && git add manifest.json versions.json"
+		"version": "node version-bump.mjs && git add manifest.json versions.json",
+		"switch-to-pnpm": "node scripts/switch-to-pnpm.mjs"
 	},
 	"devDependencies": {
 		"stylelint": "^15.11.0",
 		"stylelint-config-recommended": "^13.0.0",
 		"stylelint-no-unsupported-browser-features": "^7.0.0"
-	}
+	},
+	"packageManager": "pnpm@10.20.0"
 }
