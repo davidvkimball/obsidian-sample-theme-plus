@@ -8,21 +8,21 @@ This project uses the OpenSkills system for AI agent guidance.
 
 <!-- SKILLS_TABLE_START -->
 <usage>
-When performing tasks, check if any of the available skills below can help you. Skills provide specialized capabilities and domain knowledge.
+When users ask you to perform tasks, check if any of the available skills below can help complete the task more effectively. Skills provide specialized capabilities and domain knowledge.
 
 How to use skills:
-- Invoke: Bash("npx openskills read <skill-name>")
-- The skill content will load with detailed instructions and reference links.
-- Each skill invocation is stateless.
+- Invoke: `npx openskills read <skill-name>` (run in your shell)
+  - For multiple: `npx openskills read skill-one,skill-two`
+- The skill content will load with detailed instructions on how to complete the task
+- Base directory provided in output for resolving bundled resources (references/, scripts/, assets/)
+
+Usage notes:
+- Only use skills listed in <available_skills> below
+- Do not invoke a skill that is already loaded in your context
+- Each skill invocation is stateless
 </usage>
 
 <available_skills>
-
-<skill>
-<name>project</name>
-<description>Project-specific architecture, maintenance tasks, and unique conventions for this repository. Load when performing project-wide maintenance or working with the core architecture.</description>
-<location>project</location>
-</skill>
 
 <skill>
 <name>obsidian-dev</name>
@@ -32,13 +32,19 @@ How to use skills:
 
 <skill>
 <name>obsidian-ops</name>
-<description>Operations, syncing, versioning, and release management. Load when running linting, syncing references, bumping versions, or preparing for release. Includes the "never auto-git" policy.</description>
+<description>Operations, syncing, versioning, and release management for Obsidian projects. Load when running builds, syncing references, bumping versions, or preparing for release.</description>
 <location>project</location>
 </skill>
 
 <skill>
 <name>obsidian-ref</name>
-<description>Technical references, manifest rules, CSS variables, and theme guidelines. Load when checking Obsidian CSS variables, manifest requirements, or theme standards.</description>
+<description>Technical references, manifest rules, file formats, and UX guidelines for Obsidian. Load when checking API details, manifest requirements, or UI/UX standards.</description>
+<location>project</location>
+</skill>
+
+<skill>
+<name>project</name>
+<description>Project-specific architecture, maintenance tasks, and unique conventions for this repository. Load when performing project-wide maintenance or working with the core architecture.</description>
 <location>project</location>
 </skill>
 
