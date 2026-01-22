@@ -1,6 +1,6 @@
 # AGENTS
 
-This project uses the OpenSkills system for AI agent guidance.
+This project uses the OpenSkills system for AI agent guidance. General development skills are provided by the [obsidian-dev-skills](https://github.com/davidvkimball/obsidian-dev-skills) repository.
 
 <skills_system priority="1">
 
@@ -25,8 +25,8 @@ Usage notes:
 <available_skills>
 
 <skill>
-<name>obsidian-dev</name>
-<description>CSS/SCSS development patterns, styling conventions, and theme-specific coding rules. Load when working with theme.css, SCSS variables, or CSS selectors.</description>
+<name>obsidian-dev-themes</name>
+<description>CSS/SCSS development patterns for Obsidian themes. Load when working with theme.css, SCSS variables, or CSS selectors.</description>
 <location>project</location>
 </skill>
 

@@ -8,10 +8,34 @@ This template includes additional tools and documentation to improve your develo
 
 ### AI-Assisted Development System
 
+This template uses the OpenSkills system with centralized skills from the [obsidian-dev-skills](https://github.com/davidvkimball/obsidian-dev-skills) repository.
+
+**Setup (one-time):**
+```bash
+# 1. Clone the skills repository as a sibling
+cd ..
+git clone https://github.com/davidvkimball/obsidian-dev-skills.git obsidian-dev-skills
+
+# 2. Set up symlinks to skills
+cd your-theme-name
+.\scripts\setup-skills.ps1  # Windows PowerShell
+# or
+bash scripts/setup-skills.sh  # macOS/Linux
+```
+
+**What's included:**
 - **`AGENTS.md`** - OpenSkills entry point for AI agent guidance
-- **`.agent/skills/` folder** - Specialized skills for development, operations, and technical references
-- Helps AI assistants understand your project structure and coding conventions
-- Provides quick reference guides and common task examples
+- **`.agent/skills/` folder** - Symlinks to centralized skills repository
+- **Theme development skills** - CSS/SCSS patterns, Obsidian variables, responsive design
+- **Operations skills** - Build, release, and maintenance workflows
+- **Technical references** - API docs, manifest rules, file formats
+- **Project-specific skills** - Your custom patterns and conventions
+
+**Benefits:**
+- Single source of truth for development knowledge
+- Automatic updates when skills are improved
+- Consistent guidance across all your projects
+- Specialized knowledge for plugin vs theme development
 
 ### Reference Materials System (`.ref` folder)
 
