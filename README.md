@@ -12,15 +12,19 @@ This template uses the OpenSkills system with centralized skills from the [obsid
 
 **Setup:**
 ```bash
-# Run the comprehensive setup script (handles everything)
+# 1. Install dependencies (includes obsidian-dev-skills)
+pnpm install
+
+# 2. Initialize localized skill set (.agent/skills/)
+pnpm obsidian-dev-skills
+
+# 3. Align AGENTS.md with available skills
+npx openskills sync
+
+# 4. Set up reference materials (symlinks to core Obsidian repos)
 .\scripts\setup-ref-links.bat  # Windows
 # or
 bash scripts/setup-ref-links.sh  # macOS/Linux
-
-# Then set up skills symlinks
-.\scripts\setup-skills.ps1  # Windows PowerShell
-# or
-bash scripts/setup-skills.sh  # macOS/Linux
 ```
 
 **What's included:**
@@ -84,8 +88,11 @@ These tools and plugins can significantly improve your theme development workflo
 ### For New Themes (Using This as a Template)
 
 1. **Use this template** - Click "Use this template" on GitHub or clone this repo
-2. **Optional: Install dependencies** (recommended): `npm install` (includes Stylelint for CSS linting)
-3. **Optional: Setup reference materials** (recommended):
+2. **Install dependencies**: `pnpm install` (includes Stylelint and development skills)
+3. **Initialize skills**: 
+   - Run `pnpm obsidian-dev-skills` to seed the `.agent/skills/` folder.
+   - Run `npx openskills sync` to update `AGENTS.md`.
+4. **Optional: Setup reference materials** (recommended):
    - **Windows**: `scripts\setup-ref-links.bat`
    - **macOS/Linux**: `./scripts/setup-ref-links.sh`
 4. **Start developing**: Edit `theme.css` to customize your theme
@@ -98,7 +105,11 @@ These tools and plugins can significantly improve your theme development workflo
   - `.agent/` folder → Your theme root
    - `scripts/` folder → Your theme root
 
-2. **Setup reference materials**:
+2. **Initialize skills**: 
+   - Run `pnpm obsidian-dev-skills` to seed the `.agent/skills/` folder.
+   - Run `npx openskills sync` to update `AGENTS.md`.
+
+3. **Setup reference materials**:
    - **Windows**: `scripts\setup-ref-links.bat`
    - **macOS/Linux**: `./scripts/setup-ref-links.sh`
    - This creates symlinks to Obsidian reference repos in `.ref/` folder
@@ -137,6 +148,9 @@ These tools and plugins can significantly improve your theme development workflo
 
 ### Using the AI System
 
+- **Bootstrapping with AI**: Before providing instructions to your AI agent, visit the `prompts/` folder. Copy the `starter-prompt.md`, fill in your project details, and provide it to your agent to perfectly initialize the development environment.
+- **Initialize Skills**: Run `pnpm obsidian-dev-skills` to populate or update the `.agent/skills/` folder with the latest localized knowledge.
+- **Sync Agents**: Run `npx openskills sync` to reflect any skill changes in `AGENTS.md`.
 - Read `AGENTS.md` for project-specific instructions
 - Use `npx openskills read <skill-name>` to load specialized knowledge
 - Check `.agent/skills/*/references/` for deep technical guides
