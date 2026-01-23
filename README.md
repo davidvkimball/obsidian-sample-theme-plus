@@ -91,7 +91,7 @@ These tools and plugins can significantly improve your theme development workflo
 2. **Install dependencies**: `pnpm install` (includes Stylelint and development skills)
 3. **Initialize skills**: 
    - Run `pnpm obsidian-dev-skills` to seed the `.agent/skills/` folder.
-   - Run `npx openskills sync` to update `AGENTS.md`.
+   - Run `pnpm dlx openskills sync` to update `AGENTS.md`.
 4. **Optional: Setup reference materials** (recommended):
    - **Windows**: `scripts\setup-ref-links.bat`
    - **macOS/Linux**: `./scripts/setup-ref-links.sh`
@@ -107,7 +107,7 @@ These tools and plugins can significantly improve your theme development workflo
 
 2. **Initialize skills**: 
    - Run `pnpm obsidian-dev-skills` to seed the `.agent/skills/` folder.
-   - Run `npx openskills sync` to update `AGENTS.md`.
+   - Run `pnpm dlx openskills sync` to update `AGENTS.md`.
 
 3. **Setup reference materials**:
    - **Windows**: `scripts\setup-ref-links.bat`
