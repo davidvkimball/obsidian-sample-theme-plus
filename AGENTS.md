@@ -25,7 +25,7 @@ Usage notes:
 <available_skills>
 
 <skill>
-<name>obsidian-dev-themes</name>
+<name>obsidian-theme-dev</name>
 <description>CSS/SCSS development patterns for Obsidian themes. Load when working with theme.css, SCSS variables, or CSS selectors.</description>
 <location>project</location>
 </skill>
