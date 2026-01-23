@@ -18,6 +18,7 @@ Explicitly read the following skills to understand project standards:
 
 ## Phase 3: Project Continuity
 Before modifying code, update `.agent/skills/project/SKILL.md`:
+- **Discovery Mandate**: If `.agent/skills/project/SKILL.md` is currently a template or lacks detail, your first task is to audit the codebase and document the core architecture, key files, and unique conventions before proceeding with implementation.
 - Summarize the current design philosophy and theme state.
 - Document any unique CSS architecture (like modular SCSS, specific variable overrides).
 - Note any compatibility requirements (like Style Settings plugin integration).
