@@ -18,10 +18,7 @@ pnpm install
 # 2. Initialize localized skill set (.agent/skills/)
 pnpm obsidian-dev-skills
 
-# 3. Align AGENTS.md with available skills
-npx openskills sync
-
-# 4. Set up reference materials (symlinks to core Obsidian repos)
+# 3. Set up reference materials (symlinks to core Obsidian repos)
 .\scripts\setup-ref-links.bat  # Windows
 # or
 bash scripts/setup-ref-links.sh  # macOS/Linux
@@ -89,9 +86,7 @@ These tools and plugins can significantly improve your theme development workflo
 
 1. **Use this template** - Click "Use this template" on GitHub or clone this repo
 2. **Install dependencies**: `pnpm install` (includes Stylelint and development skills)
-3. **Initialize skills**: 
-   - Run `pnpm obsidian-dev-skills` to seed the `.agent/skills/` folder.
-   - Run `pnpm dlx openskills sync` to update `AGENTS.md`.
+3. **Initialize skills**: Run `pnpm obsidian-dev-skills` to seed the `.agent/skills/` folder and automatically generate `AGENTS.md`.
 4. **Optional: Setup reference materials** (recommended):
    - **Windows**: `scripts\setup-ref-links.bat`
    - **macOS/Linux**: `./scripts/setup-ref-links.sh`
@@ -105,9 +100,7 @@ These tools and plugins can significantly improve your theme development workflo
   - `.agent/` folder → Your theme root
    - `scripts/` folder → Your theme root
 
-2. **Initialize skills**: 
-   - Run `pnpm obsidian-dev-skills` to seed the `.agent/skills/` folder.
-   - Run `pnpm dlx openskills sync` to update `AGENTS.md`.
+2. **Initialize skills**: Run `pnpm obsidian-dev-skills` to seed the `.agent/skills/` folder and automatically generate `AGENTS.md`.
 
 3. **Setup reference materials**:
    - **Windows**: `scripts\setup-ref-links.bat`
@@ -149,8 +142,7 @@ These tools and plugins can significantly improve your theme development workflo
 ### Using the AI System
 
 - **Bootstrapping with AI**: Before providing instructions to your AI agent, visit the `prompts/` folder. Copy the `starter-prompt.md`, fill in your project details, and provide it to your agent to perfectly initialize the development environment.
-- **Initialize Skills**: Run `pnpm obsidian-dev-skills` to populate or update the `.agent/skills/` folder with the latest localized knowledge.
-- **Sync Agents**: Run `npx openskills sync` to reflect any skill changes in `AGENTS.md`.
+- **Initialize Skills**: Run `pnpm obsidian-dev-skills` to populate or update the `.agent/skills/` folder with the latest localized knowledge and automatically update `AGENTS.md`.
 - Read `AGENTS.md` for project-specific instructions
 - Use `npx openskills read <skill-name>` to load specialized knowledge
 - Check `.agent/skills/*/references/` for deep technical guides

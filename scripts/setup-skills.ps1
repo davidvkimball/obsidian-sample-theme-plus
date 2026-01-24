@@ -46,8 +46,17 @@ foreach ($targetSkill in $skillMappings.Keys) {
     }
 
     # Create symlink
+    if (-not (Test-Path $sourcePath)) {
+        Write-Host "Warning: Source skill not found at $sourcePath. Skipping $targetSkill." -ForegroundColor Yellow
+        continue
+    }
+
     Write-Host "Creating symlink: $targetSkill -> $sourceSkill" -ForegroundColor Green
     cmd /c mklink /J "$targetPath" "$sourcePath" | Out-Null
+    
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Failed to create symlink for $targetSkill. mklink exited with code $LASTEXITCODE."
+    }
 }
 
 Write-Host "Theme skills setup complete!" -ForegroundColor Cyan

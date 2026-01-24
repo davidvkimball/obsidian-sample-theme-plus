@@ -36,7 +36,16 @@ create_symlink() {
 
     # Create symlink
     echo "Creating symlink: $target_skill -> $source_skill"
-    ln -s "$source_path" "$target_path"
+    
+    # Convert source_path to absolute path for reliability
+    if command -v realpath >/dev/null 2>&1; then
+        abs_source_path=$(realpath "$source_path")
+    else
+        # Fallback for environments without realpath
+        abs_source_path=$(cd "$(dirname "$source_path")" && pwd)/$(basename "$source_path")
+    fi
+
+    ln -s "$abs_source_path" "$target_path"
 }
 
 create_symlink "obsidian-dev" "obsidian-dev-themes"

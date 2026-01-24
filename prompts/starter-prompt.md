@@ -5,9 +5,8 @@
 ## Phase 1: Environment Initialization
 Before any coding, establish the development environment:
 1.  **Dependency Check**: Ensure `obsidian-dev-skills` is installed as a `devDependency`.
-2.  **Skill Seeding**: Run `pnpm obsidian-dev-skills` to ensure `.agent/skills` and `AGENTS.md` are initialized.
-3.  **AGENTS Sync**: Run `npx openskills sync` to reflect available skills in `AGENTS.md`.
-4.  **Reference Symlinking**: Run `scripts\setup-ref-links.bat` (Windows) or `scripts/setup-ref-links.sh` (POSIX) to link core Obsidian repositories (specifically `obsidian-sample-theme` and `obsidian-developer-docs`).
+2.  **Skill Seeding**: Run `pnpm obsidian-dev-skills` to ensure `.agent/skills` and `AGENTS.md` are initialized and synchronized.
+3.  **Reference Symlinking**: Run `scripts\setup-ref-links.bat` (Windows) or `scripts/setup-ref-links.sh` (POSIX) to link core Obsidian repositories (specifically `obsidian-sample-theme` and `obsidian-developer-docs`).
 
 ## Phase 2: Knowledge Loading
 Explicitly read the following skills to understand project standards:

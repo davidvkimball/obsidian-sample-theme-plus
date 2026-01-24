@@ -9,20 +9,20 @@ cd "$PROJECT_ROOT"
 
 echo "Setting up symlinks to core Obsidian projects..."
 
-# Central .ref location (one level up from project)
-CENTRAL_REF_ROOT="../.ref"
-CENTRAL_REF="../.ref/obsidian-dev"
+# Central .ref location
+export CENTRAL_REF="${CENTRAL_REF:-"../.ref/obsidian-dev"}"
+CENTRAL_REF_ROOT=$(dirname "$CENTRAL_REF")
 
 # Create central .ref root if it doesn't exist
 if [ ! -d "$CENTRAL_REF_ROOT" ]; then
-    mkdir -p "$CENTRAL_REF_ROOT"
-    echo "Created central .ref directory"
+    mkdir -p "$CENTRAL_REF_ROOT" || { echo "ERROR: Failed to create $CENTRAL_REF_ROOT"; exit 1; }
+    echo "Created central .ref directory: $CENTRAL_REF_ROOT"
 fi
 
 # Create obsidian-dev subfolder if it doesn't exist
 if [ ! -d "$CENTRAL_REF" ]; then
-    mkdir -p "$CENTRAL_REF"
-    echo "Created obsidian-dev subfolder"
+    mkdir -p "$CENTRAL_REF" || { echo "ERROR: Failed to create $CENTRAL_REF"; exit 1; }
+    echo "Created obsidian-dev folder: $CENTRAL_REF"
 fi
 
 # Ensure plugins and themes folders exist
