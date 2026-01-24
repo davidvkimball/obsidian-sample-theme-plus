@@ -15,7 +15,15 @@ Explicitly read the following skills to understand project standards:
 - `obsidian-ref`: For UX guidelines, design standards, and manifest rules.
 - `project`: For current theme architecture and repo-specific conventions.
 
-## Phase 3: Project Continuity
+## Phase 3: Project Specification
+- **Name**: [My Theme]
+- **ID**: [my-theme]
+- **Description**: [Detailed description of the theme's aesthetic and goals.]
+- **Author**: [Name]
+- **Author URL**: [URL]
+- **Funding**: [URL]
+
+## Phase 4: Project Continuity
 Before modifying code, update `.agent/skills/project/SKILL.md`:
 - **Discovery Mandate**: If `.agent/skills/project/SKILL.md` is currently a template or lacks detail, your first task is to audit the codebase and document the core architecture, key files, and unique conventions before proceeding with implementation.
 - Summarize the current design philosophy and theme state.
