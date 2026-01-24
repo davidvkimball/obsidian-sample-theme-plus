@@ -23,7 +23,10 @@ Explicitly read the following skills to understand project standards:
 - **Author URL**: [URL]
 - **Funding**: [URL]
 
-## Phase 4: Project Continuity
+## Phase 4: Project Instructions
+- [Describe your primary aesthetic goals, specific selectors to override, and functional requirements here.]
+
+## Phase 5: Project Continuity
 Before modifying code, update `.agent/skills/project/SKILL.md`:
 - **Discovery Mandate**: If `.agent/skills/project/SKILL.md` is currently a template or lacks detail, your first task is to audit the codebase and document the core architecture, key files, and unique conventions before proceeding with implementation.
 - Summarize the current design philosophy and theme state.
