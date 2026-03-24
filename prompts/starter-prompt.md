@@ -18,7 +18,7 @@ Explicitly read the following skills to understand project standards:
 ## Phase 3: Project Specification
 - **Name**: [My Theme]
 - **ID**: [my-theme]
-- **Description**: [Detailed description of the theme's aesthetic and goals.]
+- **Description**: [One-line description of the theme's aesthetic and goals.]
 - **Author**: [Name]
 - **Author URL**: [URL]
 - **Funding**: [URL]
